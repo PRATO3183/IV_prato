@@ -121,3 +121,12 @@ print("Temporary files deleted successfully.")
 # 1. Integrate segmentation models for better obstacle understanding.
 # 2. Use more accurate depth models like DPT for fine-grained distance estimation.
 # 3. Incorporate a GUI for easier interaction (e.g., using PyQt or Tkinter).
+
+# Steps:
+# 1. Enivronment Setup:
+# pip install numpy opencv-python gtts torch torchvision matplotlib ultralytics
+# 2. Image Input and Preprocessing
+# 3. Object Detection using YOLO
+# 4. Depth Estimation
+# 5. TTS for feedback
+# 6. Annotate and Save the Image
