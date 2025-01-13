@@ -3,13 +3,14 @@
 
 from ultralytics import YOLO
 import cv2
+
 # import os
 
 # Load YOLOv8 model
-model = YOLO("Models\yolov8n.pt")
+model = YOLO("Models\\yolov8n.pt")
 
 # Step 2: Image Input and Preprocessing
-image_path = "Images\image8.jpg"  # Path to the input image
+image_path = "Images\\image8.jpg"  # Path to the input image
 image = cv2.imread(image_path)
 # cv2.imshow("Input Image", image)
 # cv2.waitKey(1)
@@ -27,16 +28,24 @@ results = model(image)
 for box in results[0].boxes:
     # Extract box coordinates, confidence, and class
     x1, y1, x2, y2 = box.xyxy[0].tolist()  # Coordinates
-    conf = box.conf[0].item()             # Confidence
-    cls = int(box.cls[0].item())          # Class ID
-    label = results[0].names[cls]         # Class name
+    conf = box.conf[0].item()  # Confidence
+    cls = int(box.cls[0].item())  # Class ID
+    label = results[0].names[cls]  # Class name
 
     # # Only mark "stairs" if detected
     # if label == "stairs":
-    
+
     # Draw bounding box and label on the image
     cv2.rectangle(image, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
-    cv2.putText(image, f"{label} ({conf:.2f})", (int(x1), int(y1) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+    cv2.putText(
+        image,
+        f"{label} ({conf:.2f})",
+        (int(x1), int(y1) - 10),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.5,
+        (0, 255, 0),
+        2,
+    )
 
 # # Display the image
 # cv2.imshow("Detected Objects", image)
@@ -64,7 +73,7 @@ with torch.no_grad():
 # Display depth map
 depth_array = depth_map.squeeze().numpy()
 distance = depth_array.mean()  # Placeholder: actual calculation may vary
-distance=int(distance)
+distance = int(distance)
 print(f"Average Distance: {distance} centimeters")
 
 
@@ -74,7 +83,7 @@ import os
 
 # Convert detected information to speech
 text = f"Stairs detected at {distance} centimeters."
-tts = gTTS(text, lang='en')
+tts = gTTS(text, lang="en")
 tts.save("output.mp3")
 os.system("start output.mp3")
 
@@ -98,7 +107,6 @@ if os.path.exists("output.mp3"):
     os.remove("output.mp3")
 
 print("Temporary files deleted successfully.")
-
 
 
 # Final Workflow :
