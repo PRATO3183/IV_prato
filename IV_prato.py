@@ -9,7 +9,7 @@ import cv2
 model = YOLO("Models\yolov8n.pt")
 
 # Step 2: Image Input and Preprocessing
-image_path = "Images\image7.jpg"  # Path to the input image
+image_path = "Images\image8.jpg"  # Path to the input image
 image = cv2.imread(image_path)
 # cv2.imshow("Input Image", image)
 # cv2.waitKey(1)
