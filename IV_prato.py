@@ -6,10 +6,10 @@ import cv2
 # import os
 
 # Load YOLOv8 model
-model = YOLO("/Models/yolov8n.pt")
+model = YOLO("Models\yolov8n.pt")
 
 # Step 2: Image Input and Preprocessing
-image_path = "/Images/image7.jpg"  # Path to the input image
+image_path = "Images\image7.jpg"  # Path to the input image
 image = cv2.imread(image_path)
 # cv2.imshow("Input Image", image)
 # cv2.waitKey(1)
@@ -91,11 +91,11 @@ cv2.imshow("Detected Objects", image)
 cv2.waitKey(10000)
 cv2.destroyAllWindows()
 
-# # Delete the generated files
-# if os.path.exists("output.jpg"):
-#     os.remove("output.jpg")
-# if os.path.exists("output.mp3"):
-#     os.remove("output.mp3")
+# Delete the generated files
+if os.path.exists("output.jpg"):
+    os.remove("output.jpg")
+if os.path.exists("output.mp3"):
+    os.remove("output.mp3")
 
 print("Temporary files deleted successfully.")
 
