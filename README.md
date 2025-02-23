@@ -1,6 +1,6 @@
 # IV_prato
 
-
+Note this is an underdevelopment project
 items remaining:
 
 1. blobs in detection
